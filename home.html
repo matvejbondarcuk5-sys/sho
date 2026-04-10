@@ -1,0 +1,40 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Главная - Музыкальная поэзия{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 mb-4">Добро пожаловать в Музыкальную поэзию</h1>
+    <p class="lead mb-5">Откройте для себя лучшие треки</p>
+    
+    <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg">Перейти к чарту</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">🎵 Лучшие треки</h5>
+                <p class="card-text">Слушайте топовые композиции</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">⭐ Избранное</h5>
+                <p class="card-text">Сохраняйте любимые треки в свой плейлист</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">🔍 Поиск</h5>
+                <p class="card-text">Найдите треки по названию или категории</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

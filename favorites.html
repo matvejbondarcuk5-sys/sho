@@ -11,7 +11,7 @@
         {% for fav in favorites %}
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img src="{% if fav.product.image %}{{ fav.product.image.url }}{% else %}{% static 'images/placeholder.png' %}{% endif %}"
+                    <img src="{% if fav.product.image %}{{ fav.product.image.url }}{% else %}{% static 'images/placeholder.svg' %}{% endif %}"
                          class="card-img-top" style="height: 200px; object-fit: cover;" alt="{{ fav.product.name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ fav.product.name }}</h5>

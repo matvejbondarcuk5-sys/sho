@@ -7,7 +7,7 @@
 
 <nav aria-label="навигация" class="mb-4">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'product_list' %}">Главная</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
         <li class="breadcrumb-item"><a href="{% url 'product_list' %}">Треки</a></li>
         <li class="breadcrumb-item active">{{ product.name|truncatechars:30 }}</li>
     </ol>
@@ -19,9 +19,9 @@
             <img src="{{ product.image.url }}" 
                  class="img-fluid rounded" 
                  alt="{{ product.name }}"
-                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';">
+                 onerror="this.onerror=null; this.src='/static/images/placeholder.svg';">
         {% else %}
-            <img src="{% static 'images/placeholder.png' %}" 
+            <img src="{% static 'images/placeholder.svg' %}" 
                  class="img-fluid rounded" 
                  alt="{{ product.name }} (заглушка)">
         {% endif %}
@@ -31,7 +31,7 @@
         <h1 class="mb-3">{{ product.name }}</h1>
         
         <p class="mb-4">
-            <strong>Цена:</strong> {{ product.price|floatformat:2 }} ₽<br>
+            <strong>Место:</strong> {{ product.price|floatformat:2 }} <br>
             <strong>Статус:</strong>
             {% if product.status == 'active' %}
                 <span class="badge bg-success ms-2">Активно поет</span>
@@ -41,7 +41,7 @@
         </p>
 
         <div class="mb-4">
-            <strong>Описание:</strong>
+            <strong>Название:</strong>
             <p>{{ product.description|linebreaks }}</p>
         </div>
 
@@ -72,9 +72,9 @@
                                  class="card-img-top w-100 mb-2 rounded" 
                                  alt="{{ related_product.name }}"
                                  style="height: 180px; object-fit: cover;"
-                                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';">
+                                 onerror="this.onerror=null; this.src='/static/images/placeholder.svg';">
                         {% else %}
-                            <img src="{% static 'images/placeholder.png' %}" 
+                            <img src="{% static 'images/placeholder.svg' %}" 
                                  class="card-img-top w-100 mb-2 rounded" 
                                  alt="{{ related_product.name }} (заглушка)"
                                  style="height: 180px; object-fit: cover;">
