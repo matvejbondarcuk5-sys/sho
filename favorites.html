@@ -1,0 +1,31 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Избранное{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">⭐ Избранные треки</h1>
+
+{% if favorites %}
+    <div class="row">
+        {% for fav in favorites %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{% if fav.product.image %}{{ fav.product.image.url }}{% else %}{% static 'images/placeholder.png' %}{% endif %}"
+                         class="card-img-top" style="height: 200px; object-fit: cover;" alt="{{ fav.product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ fav.product.name }}</h5>
+                        <p class="card-text">{{ fav.product.price|floatformat:2 }} ₽</p>
+                        <a href="{% url 'product_detail' id=fav.product.id slug=fav.product.slug %}" class="btn btn-primary btn-sm">Открыть</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info">
+        У вас пока нет избранных треков. 
+        <a href="{% url 'product_list' %}">Перейти к списку</a>
+    </div>
+{% endif %}
+{% endblock %}
